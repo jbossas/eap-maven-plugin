@@ -26,7 +26,7 @@
     </parent>
     <groupId>org.jboss.eap.plugins</groupId>
     <artifactId>eap-maven-plugin-parent</artifactId>
-    <version>1.0.0.Beta-redhat-SNAPSHOT</version>
+    <version>1.0.0.Alpha1-redhat-dev</version>
     <packaging>pom</packaging>
     <name>Maven Plugin to provision EAP 8 Parent</name>
     <description>Maven Plugin to provision EAP 8 Parent</description>
