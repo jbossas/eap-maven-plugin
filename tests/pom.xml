@@ -36,8 +36,7 @@
     <description>Maven Plugin to provision EAP 8 Tests</description>
 
     <properties>
-        <!-- version from a test release to unzip in local maven cache -->
-        <version.org.eap>8.0.0.Beta-redhat-20220923</version.org.eap>
+        <version.org.eap>8.0.0.Beta-redhat-00003</version.org.eap>
         <wildfly.test.config.dir>
             ${project.build.testOutputDirectory}${file.separator}test-project
         </wildfly.test.config.dir>
