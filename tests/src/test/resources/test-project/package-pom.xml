@@ -38,6 +38,20 @@
                 <updatePolicy>never</updatePolicy>
             </snapshots>
         </repository>
+        <repository>  
+            <id>techpreview</id>  
+            <name>tech preview</name>  
+            <url>https://maven.repository.redhat.com/earlyaccess/all</url>  
+            <layout>default</layout>  
+            <releases>  
+                <enabled>true</enabled>  
+                <updatePolicy>never</updatePolicy>  
+            </releases>  
+            <snapshots>  
+                <enabled>false</enabled>  
+                <updatePolicy>never</updatePolicy>  
+            </snapshots>  
+        </repository>  
     </repositories>
     <build>
         <plugins>
