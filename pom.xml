@@ -63,7 +63,7 @@
         <version.org.apache.maven.resolver>1.9.6.redhat-00002</version.org.apache.maven.resolver>
         <version.org.apache.maven.shared>0.9.1</version.org.apache.maven.shared>
    
-        <version.org.jboss.galleon>5.0.8.Final-redhat-00001</version.org.jboss.galleon>
+        <version.org.jboss.galleon>5.1.0.Final-redhat-00001</version.org.jboss.galleon>
         <version.org.jboss.logging.jboss-logging>3.4.3.Final-redhat-00001</version.org.jboss.logging.jboss-logging>
         <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
         <version.org.jboss.logmanager.jboss-logmanager>2.1.19.Final-redhat-00001</version.org.jboss.logmanager.jboss-logmanager>
@@ -75,7 +75,7 @@
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
         <version.org.wildfly.common.wildfly-common>1.6.0.Final-redhat-00001</version.org.wildfly.common.wildfly-common>
         <version.org.wildfly.core>20.0.0.Beta-redhat-20230313</version.org.wildfly.core>
-        <version.org.wildfly.maven.plugin>4.1.0.Beta4</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.maven.plugin>4.1.0.Beta5-redhat-00001</version.org.wildfly.maven.plugin>
         <version.org.wildfly.prospero>1.0.0.Beta7-redhat-00001</version.org.wildfly.prospero>
         
         <version.snakeyaml.snakeyaml>2.0.0.redhat-00003</version.snakeyaml.snakeyaml>
