@@ -43,42 +43,17 @@
         <linkXRef>false</linkXRef>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        
-        <version.com.ethlo.time>1.7.0</version.com.ethlo.time>
-        <version.com.fasterxml.jackson>2.14.2</version.com.fasterxml.jackson>
-        <version.com.google.guava>31.1.0.jre-redhat-00001</version.com.google.guava>
-        <version.com.google.guava.failureaccess>1.0.1.redhat-00003</version.com.google.guava.failureaccess>
-        <version.com.networknt>1.0.78.redhat-00001</version.com.networknt>
-        <version.commons-codec>1.11</version.commons-codec>
-        <version.commons-logging>1.2</version.commons-logging>
-            
+                    
         <version.javax.inject.javax.inject>1</version.javax.inject.javax.inject>
         <version.junit>4.13.2</version.junit>
-        <version.org.apache.commons>3.12.0.redhat-00001</version.org.apache.commons>
-        <version.org.apache.httpcomponents.httpclient>4.5.14.redhat-00002</version.org.apache.httpcomponents.httpclient>
-        <version.org.apache.httpcomponents.httpcore>4.4.16.redhat-00001</version.org.apache.httpcomponents.httpcore>
         
         <version.org.apache.maven.maven-core>3.6.2</version.org.apache.maven.maven-core>
         <version.org.apache.maven.plugin-tools>3.7.0</version.org.apache.maven.plugin-tools>
-        <version.org.apache.maven.resolver>1.9.6.redhat-00002</version.org.apache.maven.resolver>
-        <version.org.apache.maven.shared>0.9.1</version.org.apache.maven.shared>
-   
-        <version.org.jboss.galleon>5.1.0.Final-redhat-00001</version.org.jboss.galleon>
-        <version.org.jboss.logging.jboss-logging>3.4.3.Final-redhat-00001</version.org.jboss.logging.jboss-logging>
+        <version.org.apache.maven.resolver>1.9.6.redhat-00003</version.org.apache.maven.resolver>
+        <version.org.apache.maven.wagon>3.5.3</version.org.apache.maven.wagon>
         <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
-        <version.org.jboss.logmanager.jboss-logmanager>2.1.19.Final-redhat-00001</version.org.jboss.logmanager.jboss-logmanager>
-        <version.org.jboss.staxmapper>1.3.0.Final-redhat-1</version.org.jboss.staxmapper>
-
-        <version.org.slf4j>1.7.36</version.org.slf4j>
-        
-        <version.org.wildfly.channel>1.0.0.Beta6-redhat-00001</version.org.wildfly.channel>
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
-        <version.org.wildfly.common.wildfly-common>1.6.0.Final-redhat-00001</version.org.wildfly.common.wildfly-common>
-        <version.org.wildfly.core>20.0.0.Beta-redhat-20230313</version.org.wildfly.core>
-        <version.org.wildfly.maven.plugin>4.1.0.Beta5-redhat-00001</version.org.wildfly.maven.plugin>
-        <version.org.wildfly.prospero>1.0.0.Beta7-redhat-00001</version.org.wildfly.prospero>
-        
-        <version.snakeyaml.snakeyaml>2.0.0.redhat-00003</version.snakeyaml.snakeyaml>
+        <version.org.wildfly.maven.plugin>4.1.1.Final-redhat-00002</version.org.wildfly.maven.plugin>
     </properties>
     
     <dependencyManagement>
@@ -87,94 +62,6 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>eap-maven-plugin</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ethlo.time</groupId>
-                <artifactId>itu</artifactId>
-                <version>${version.com.ethlo.time}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-annotations</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-yaml</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.yaml</groupId>
-                        <artifactId>snakeyaml</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${version.com.google.guava}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>failureaccess</artifactId>
-                <version>${version.com.google.guava.failureaccess}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.networknt</groupId>
-                <artifactId>json-schema-validator</artifactId>
-                <version>${version.com.networknt}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.ethlo.time</groupId>
-                        <artifactId>itu</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${version.commons-codec}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${version.commons-logging}</version>
             </dependency>
 
             <dependency>
@@ -187,34 +74,6 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${version.junit}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${version.org.apache.commons}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${version.org.apache.httpcomponents.httpclient}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>commons-codec</groupId>
-                        <artifactId>commons-codec</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>${version.org.apache.httpcomponents.httpcore}</version>
             </dependency>
 
             <dependency>
@@ -251,16 +110,6 @@
                 <groupId>org.apache.maven.resolver</groupId>
                 <artifactId>maven-resolver-impl</artifactId>
                 <version>${version.org.apache.maven.resolver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.commons</groupId>
-                        <artifactId>commons-lang3</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
@@ -279,20 +128,6 @@
                 <groupId>org.apache.maven.resolver</groupId>
                 <artifactId>maven-resolver-transport-http</artifactId>
                 <version>${version.org.apache.maven.resolver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.httpcomponents</groupId>
-                        <artifactId>httpclient</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.httpcomponents</groupId>
-                        <artifactId>httpcore</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>jcl-over-slf4j</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
@@ -302,75 +137,15 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.maven.shared</groupId>
-                <artifactId>maven-artifact-transfer</artifactId>
-                <version>${version.org.apache.maven.shared}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-transport-wagon</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss</groupId>
-                <artifactId>staxmapper</artifactId>
-                <version>${version.org.jboss.staxmapper}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.galleon</groupId>
-                <artifactId>galleon-core</artifactId>
-                <version>${version.org.jboss.galleon}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.galleon</groupId>
-                <artifactId>galleon-maven-plugin</artifactId>
-                <version>${version.org.jboss.galleon}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.galleon</groupId>
-                <artifactId>galleon-maven-universe</artifactId>
-                <version>${version.org.jboss.galleon}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.maven.shared</groupId>
-                        <artifactId>maven-artifact-transfer</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.maven</groupId>
-                        <artifactId>maven-artifact</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.eclipse.aether</groupId>
-                        <artifactId>aether-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.eclipse.aether</groupId>
-                        <artifactId>aether-util</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.logging</groupId>
-                <artifactId>jboss-logging</artifactId>
-                <version>${version.org.jboss.logging.jboss-logging}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.logmanager</groupId>
-                <artifactId>jboss-logmanager</artifactId>
-                <version>${version.org.jboss.logmanager.jboss-logmanager}</version>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-http</artifactId>
+                <version>${version.org.apache.maven.wagon}</version>
             </dependency>
 
             <dependency>
@@ -380,65 +155,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${version.org.slf4j}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${version.org.slf4j}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.channel</groupId>
-                <artifactId>channel-core</artifactId>
-                <version>${version.org.wildfly.channel}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.dataformat</groupId>
-                        <artifactId>jackson-dataformat-yaml</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.networknt</groupId>
-                        <artifactId>json-schema-validator</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.channel</groupId>
-                <artifactId>maven-resolver</artifactId>
-                <version>${version.org.wildfly.channel}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.wildfly.checkstyle</groupId>
                 <artifactId>wildfly-checkstyle-config</artifactId>
                 <version>${version.org.wildfly.checkstyle-config}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.common</groupId>
-                <artifactId>wildfly-common</artifactId>
-                <version>${version.org.wildfly.common.wildfly-common}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-controller-client</artifactId>
-                <version>${version.org.wildfly.core}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-launcher</artifactId>
-                <version>${version.org.wildfly.core}</version>
             </dependency>
 
             <dependency>
@@ -447,7 +166,7 @@
                 <version>${version.org.wildfly.maven.plugin}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>*</groupId>
+                        <groupId>org.twdata.maven</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
                 </exclusions>
@@ -457,36 +176,6 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin-tests-shared</artifactId>
                 <version>${version.org.wildfly.maven.plugin}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-plugin-core</artifactId>
-                <version>${version.org.wildfly.maven.plugin}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wildfly.prospero</groupId>
-                <artifactId>prospero-metadata</artifactId>
-                <version>${version.org.wildfly.prospero}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${version.snakeyaml.snakeyaml}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
