@@ -48,7 +48,7 @@
         <version.com.fasterxml.jackson>2.14.2</version.com.fasterxml.jackson>
         <version.com.google.guava>31.1.0.jre-redhat-00001</version.com.google.guava>
         <version.com.google.guava.failureaccess>1.0.1.redhat-00003</version.com.google.guava.failureaccess>
-        <version.com.networknt>1.0.78.redhat-00001</version.com.networknt>
+        <version.com.networknt>1.0.78</version.com.networknt>
         <version.commons-codec>1.11</version.commons-codec>
         <version.commons-logging>1.2</version.commons-logging>
             
