@@ -54,7 +54,7 @@
         <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
         <!-- Use community version, is replaced by PROD team -->
-        <version.org.wildfly.maven.plugin>4.1.4.Final</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.maven.plugin>4.1.6.Final</version.org.wildfly.maven.plugin>
     </properties>
     
     <dependencyManagement>
