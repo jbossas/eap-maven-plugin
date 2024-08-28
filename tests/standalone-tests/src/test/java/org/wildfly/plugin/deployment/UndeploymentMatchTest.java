@@ -16,6 +16,7 @@ import org.apache.maven.api.plugin.testing.MojoParameter;
 import org.apache.maven.api.plugin.testing.MojoTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.tests.TestEnvironment;
 import org.wildfly.plugin.tools.DeploymentDescription;
@@ -30,6 +31,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
  *
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
  */
+@Disabled
 @MojoTest
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

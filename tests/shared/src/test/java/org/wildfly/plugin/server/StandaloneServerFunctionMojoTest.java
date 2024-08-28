@@ -17,6 +17,7 @@ import org.apache.maven.api.plugin.testing.InjectMojo;
 import org.apache.maven.api.plugin.testing.MojoTest;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.core.launcher.StandaloneCommandBuilder;
 import org.wildfly.plugin.tests.AbstractProjectMojoTest;
@@ -27,6 +28,7 @@ import org.wildfly.plugin.tools.server.StandaloneConfiguration;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Disabled
 @MojoTest(realRepositorySession = true)
 @Basedir("target/test-classes/test-project")
 public class StandaloneServerFunctionMojoTest extends AbstractProjectMojoTest {

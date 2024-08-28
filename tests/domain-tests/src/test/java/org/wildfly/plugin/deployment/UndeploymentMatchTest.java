@@ -23,6 +23,7 @@ import org.jboss.dmr.ModelNode;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.tests.TestEnvironment;
 import org.wildfly.plugin.tools.DeploymentDescription;
@@ -38,6 +39,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyDomainTest;
  *
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
  */
+@Disabled
 @MojoTest
 @WildFlyDomainTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

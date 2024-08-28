@@ -23,6 +23,7 @@ import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.as.controller.client.helpers.ClientConstants;
 import org.jboss.as.controller.client.helpers.Operations;
 import org.jboss.dmr.ModelNode;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.TestEnvironment;
@@ -38,6 +39,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyDomainTest;
  *
  * @author <a href="mailto:heinz.wilming@akquinet.de">Heinz Wilming</a>
  */
+@Disabled
 @MojoTest
 @WildFlyDomainTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

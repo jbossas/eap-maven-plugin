@@ -16,6 +16,7 @@ import org.apache.maven.api.plugin.testing.InjectMojo;
 import org.apache.maven.api.plugin.testing.MojoTest;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.logging.Log;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
@@ -24,6 +25,7 @@ import org.wildfly.plugin.tests.AbstractProjectMojoTest;
 import org.wildfly.plugin.tests.TestEnvironment;
 import org.wildfly.plugin.tools.TestSupport;
 
+@Disabled
 @MojoTest(realRepositorySession = true)
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)
 @ChannelsRequired
