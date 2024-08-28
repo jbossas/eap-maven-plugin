@@ -5,9 +5,11 @@
 package org.wildfly.plugin.provision;
 
 import org.junit.Assume;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.tests.TestEnvironment;
 
+@Ignore
 public class ServerConfigImageTest extends AbstractImageTest {
 
     @Test

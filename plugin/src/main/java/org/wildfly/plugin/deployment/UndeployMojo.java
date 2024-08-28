@@ -15,7 +15,6 @@ import java.util.regex.Pattern;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.jboss.as.controller.client.ModelControllerClient;
@@ -32,7 +31,7 @@ import org.wildfly.plugin.tools.UndeployDescription;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "undeploy", threadSafe = true)
+// @Mojo(name = "undeploy", threadSafe = true)
 public class UndeployMojo extends AbstractServerConnection {
 
     @Parameter(defaultValue = "${project}", readonly = true, required = true)

@@ -52,10 +52,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import org.apache.maven.plugins.annotations.Component;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.jboss.as.controller.client.ModelControllerClient;
@@ -115,7 +112,8 @@ import org.wildfly.plugin.tools.server.StandaloneManager;
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  * @since 4.1
  */
-@Mojo(name = "dev", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase = LifecyclePhase.PACKAGE)
+// @Mojo(name = "dev", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase =
+// LifecyclePhase.PACKAGE)
 public class DevMojo extends AbstractServerStartMojo {
     private static final String ORG_APACHE_MAVEN_PLUGINS = "org.apache.maven.plugins";
     private static final String MAVEN_COMPILER_PLUGIN = "maven-compiler-plugin";

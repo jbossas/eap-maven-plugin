@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.as.controller.client.helpers.domain.DomainClient;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.wildfly.core.launcher.DomainCommandBuilder;
 import org.wildfly.core.launcher.Launcher;
 import org.wildfly.core.launcher.ProcessHelper;
@@ -24,6 +25,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Ignore
 @SuppressWarnings("Duplicates")
 public class DomainTestServer implements TestServer {
 

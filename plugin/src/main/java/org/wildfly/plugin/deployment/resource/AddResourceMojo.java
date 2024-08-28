@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.as.controller.client.helpers.Operations.CompositeOperationBuilder;
@@ -35,7 +34,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
  * @author Stuart Douglas
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "add-resource", threadSafe = true)
+// @Mojo(name = "add-resource", threadSafe = true)
 public class AddResourceMojo extends AbstractServerConnection {
 
     public static final String GOAL = "add-resource";

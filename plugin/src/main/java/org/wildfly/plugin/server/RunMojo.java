@@ -19,9 +19,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.wildfly.core.launcher.CommandBuilder;
 import org.wildfly.plugin.cli.CommandConfiguration;
@@ -43,7 +41,7 @@ import org.wildfly.plugin.tools.DeploymentManager;
  * @author Stuart Douglas
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "run", requiresDependencyResolution = ResolutionScope.RUNTIME)
+// @Mojo(name = "run", requiresDependencyResolution = ResolutionScope.RUNTIME)
 @Execute(phase = LifecyclePhase.PACKAGE)
 public class RunMojo extends AbstractServerStartMojo {
 
