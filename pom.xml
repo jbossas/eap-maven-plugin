@@ -12,9 +12,9 @@
         <artifactId>wildfly-parent</artifactId>
         <version>1.0.4.Final</version>
     </parent>
-    <groupId>org.wildfly.plugins</groupId>
+    <groupId>org.jboss.eap.plugins</groupId>
     <artifactId>wildfly-maven-plugin-parent</artifactId>
-    <version>5.1.0.Beta1-SNAPSHOT</version>
+    <version>2.0.0.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WildFly Maven Plugin - Parent</name>
 
@@ -123,7 +123,7 @@
 
         <!-- documentation properties -->
         <appServerName>WildFly</appServerName>
-        <pluginPrefix>wildfly</pluginPrefix>
+        <pluginPrefix>eap</pluginPrefix>
         <resteasyChannelStream>6.2</resteasyChannelStream>
         <wildflyVersion>${version.org.wildfly}</wildflyVersion>
 
