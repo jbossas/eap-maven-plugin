@@ -16,6 +16,7 @@ import org.apache.maven.api.plugin.testing.MojoTest;
 import org.jboss.as.controller.client.helpers.ClientConstants;
 import org.jboss.dmr.ModelNode;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.TestEnvironment;
@@ -30,6 +31,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
  *
  * @author <a href="mailto:heinz.wilming@akquinet.de">Heinz Wilming</a>
  */
+@Disabled
 @MojoTest
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

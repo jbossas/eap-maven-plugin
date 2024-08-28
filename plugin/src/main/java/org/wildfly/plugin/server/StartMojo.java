@@ -11,9 +11,7 @@ import java.nio.file.Path;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.wildfly.core.launcher.CommandBuilder;
 import org.wildfly.plugin.common.PropertyNames;
 import org.wildfly.plugin.common.StandardOutput;
@@ -29,7 +27,7 @@ import org.wildfly.plugin.common.StandardOutput;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "start", requiresDependencyResolution = ResolutionScope.RUNTIME)
+// @Mojo(name = "start", requiresDependencyResolution = ResolutionScope.RUNTIME)
 public class StartMojo extends AbstractServerStartMojo {
 
     /**

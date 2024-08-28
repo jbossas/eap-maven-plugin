@@ -9,7 +9,6 @@ import java.net.URL;
 
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.wildfly.plugin.common.PropertyNames;
 import org.wildfly.plugin.tools.Deployment;
@@ -18,7 +17,7 @@ import org.wildfly.plugin.tools.Deployment;
  * Redeploys only the application to the WildFly Application Server without first invoking the
  * the execution of the lifecycle phase 'package' prior to executing itself.
  */
-@Mojo(name = "redeploy-only", threadSafe = true)
+// @Mojo(name = "redeploy-only", threadSafe = true)
 @Execute(phase = LifecyclePhase.NONE)
 public class RedeployOnlyMojo extends RedeployMojo {
 

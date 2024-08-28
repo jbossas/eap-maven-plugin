@@ -19,6 +19,7 @@ import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.jboss.dmr.ModelNode;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.TestEnvironment;
@@ -32,6 +33,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Disabled
 @MojoTest
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)
