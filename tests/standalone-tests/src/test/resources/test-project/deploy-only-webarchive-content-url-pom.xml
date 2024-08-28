@@ -14,8 +14,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
                     <content-url>${test.project.baseuri}/target/test.war</content-url>
                     <checkPackaging>false</checkPackaging>
