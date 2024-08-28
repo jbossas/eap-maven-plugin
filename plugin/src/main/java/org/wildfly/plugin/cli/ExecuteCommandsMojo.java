@@ -23,7 +23,6 @@ import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.aether.RepositorySystem;
@@ -56,7 +55,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "execute-commands", threadSafe = true)
+// @Mojo(name = "execute-commands", threadSafe = true)
 public class ExecuteCommandsMojo extends AbstractServerConnection {
 
     /**

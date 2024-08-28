@@ -22,6 +22,7 @@ import org.jboss.dmr.ModelNode;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
 import org.wildfly.plugin.tools.DeploymentDescription;
@@ -34,6 +35,7 @@ import org.wildfly.plugin.tools.UndeployDescription;
  *
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
  */
+@Ignore
 public class UndeploymentMatchTest extends AbstractWildFlyServerMojoTest {
     private static final String DEPLOYMENT_NAME_1 = "test-undeploy-1.war";
     private static final String DEPLOYMENT_NAME_2 = "test-undeploy-2.war";

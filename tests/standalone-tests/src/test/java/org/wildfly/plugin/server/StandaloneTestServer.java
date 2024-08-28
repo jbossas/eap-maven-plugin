@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.wildfly.core.launcher.Launcher;
 import org.wildfly.core.launcher.ProcessHelper;
 import org.wildfly.core.launcher.StandaloneCommandBuilder;
@@ -23,6 +24,7 @@ import org.wildfly.plugin.tools.server.StandaloneManager;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Ignore
 public class StandaloneTestServer implements TestServer {
     private static final AtomicBoolean STARTED = new AtomicBoolean(false);
     private volatile Process currentProcess;

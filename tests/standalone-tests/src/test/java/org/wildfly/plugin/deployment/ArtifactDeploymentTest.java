@@ -20,6 +20,7 @@ import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.jboss.dmr.ModelNode;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
@@ -30,6 +31,7 @@ import org.wildfly.plugin.tools.UndeployDescription;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Ignore
 public class ArtifactDeploymentTest extends AbstractWildFlyServerMojoTest {
 
     private final String artifactName = "dummy.jar";

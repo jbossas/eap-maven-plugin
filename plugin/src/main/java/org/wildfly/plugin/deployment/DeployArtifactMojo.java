@@ -11,9 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.wildfly.plugin.common.PropertyNames;
 import org.wildfly.plugin.tools.Deployment;
 import org.wildfly.plugin.tools.DeploymentManager;
@@ -24,7 +22,7 @@ import org.wildfly.plugin.tools.DeploymentResult;
  *
  * @author Stuart Douglas
  */
-@Mojo(name = "deploy-artifact", requiresDependencyResolution = ResolutionScope.TEST, threadSafe = true)
+// @Mojo(name = "deploy-artifact", requiresDependencyResolution = ResolutionScope.TEST, threadSafe = true)
 public class DeployArtifactMojo extends AbstractDeployment {
 
     /**

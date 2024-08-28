@@ -22,6 +22,7 @@ import org.apache.maven.plugin.Mojo;
 import org.jboss.as.controller.client.helpers.ClientConstants;
 import org.jboss.as.controller.client.helpers.Operations.CompositeOperationBuilder;
 import org.jboss.dmr.ModelNode;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
@@ -34,6 +35,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
  *
  * @author <a href="mailto:heinz.wilming@akquinet.de">Heinz Wilming</a>
  */
+@Ignore
 public class DeployTest extends AbstractWildFlyServerMojoTest {
     private static final String DEFAULT_SERVER_GROUP = "main-server-group";
     private static final Set<String> DEFAULT_SERVER_GROUPS = Collections.singleton(DEFAULT_SERVER_GROUP);

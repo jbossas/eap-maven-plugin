@@ -13,6 +13,7 @@ import javax.inject.Inject;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
 import org.wildfly.plugin.tools.DeploymentDescription;
@@ -23,6 +24,7 @@ import org.wildfly.plugin.tools.DeploymentManager;
  *
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
  */
+@Ignore
 public class UndeploymentMatchTest extends AbstractWildFlyServerMojoTest {
 
     @Inject

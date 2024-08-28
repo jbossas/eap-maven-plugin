@@ -13,9 +13,7 @@ import java.nio.file.Paths;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.wildfly.core.launcher.BootableJarCommandBuilder;
 import org.wildfly.core.launcher.CommandBuilder;
 import org.wildfly.plugin.common.Environment;
@@ -31,7 +29,7 @@ import org.wildfly.plugin.common.Utils;
  *
  * @since 5.0
  */
-@Mojo(name = "start-jar", requiresDependencyResolution = ResolutionScope.RUNTIME)
+// @Mojo(name = "start-jar", requiresDependencyResolution = ResolutionScope.RUNTIME)
 public class StartJarMojo extends AbstractStartMojo {
 
     /**
