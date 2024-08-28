@@ -14,8 +14,8 @@
         <finalName>foo</finalName>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
                     <feature-packs>
                         <feature-pack>
