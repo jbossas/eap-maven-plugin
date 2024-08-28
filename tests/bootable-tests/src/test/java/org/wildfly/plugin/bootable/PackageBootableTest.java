@@ -18,7 +18,7 @@ public class PackageBootableTest extends AbstractProvisionConfiguredMojoTestCase
     private static final String BOOTABLE_JAR_NAME = "server-bootable.jar";
 
     public PackageBootableTest() {
-        super("wildfly-maven-plugin");
+        super("eap-maven-plugin");
     }
 
     @Test

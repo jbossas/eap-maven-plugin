@@ -17,7 +17,7 @@ import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
 
     public PackageTest() {
-        super("wildfly-maven-plugin");
+        super("eap-maven-plugin");
     }
 
     @Test

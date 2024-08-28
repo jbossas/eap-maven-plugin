@@ -83,7 +83,7 @@
         <plugins>
             <plugin>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <executions>
                     <execution>
