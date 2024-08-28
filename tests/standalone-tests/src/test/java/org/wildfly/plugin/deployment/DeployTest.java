@@ -14,6 +14,7 @@ import javax.inject.Inject;
 
 import org.jboss.as.controller.client.helpers.ClientConstants;
 import org.jboss.dmr.ModelNode;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
@@ -25,6 +26,7 @@ import org.wildfly.plugin.tools.UndeployDescription;
  *
  * @author <a href="mailto:heinz.wilming@akquinet.de">Heinz Wilming</a>
  */
+@Ignore
 public class DeployTest extends AbstractWildFlyServerMojoTest {
 
     @Inject

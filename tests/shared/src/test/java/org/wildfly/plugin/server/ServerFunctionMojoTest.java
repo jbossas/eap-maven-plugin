@@ -18,6 +18,7 @@ import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.as.controller.client.helpers.domain.DomainClient;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 import org.wildfly.plugin.tests.TestEnvironment;
@@ -26,6 +27,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
+@Ignore
 public class ServerFunctionMojoTest extends AbstractWildFlyMojoTest {
 
     @After

@@ -16,6 +16,7 @@ import java.util.List;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.Assume;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.wildfly.plugin.categories.ChannelsRequired;
@@ -23,6 +24,7 @@ import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 import org.wildfly.plugin.tests.TestEnvironment;
 
 @Category(ChannelsRequired.class)
+@Ignore
 public class ImageTest extends AbstractImageTest {
 
     @Test

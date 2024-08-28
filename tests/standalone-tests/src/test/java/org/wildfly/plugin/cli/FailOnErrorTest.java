@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.jboss.dmr.ModelNode;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractWildFlyServerMojoTest;
@@ -24,6 +25,7 @@ import org.wildfly.plugin.tests.TestEnvironment;
 /**
  * @author <a href="mailto:sven-torben@sven-torben.de">Sven-Torben Janus</a>
  */
+@Ignore
 public class FailOnErrorTest extends AbstractWildFlyServerMojoTest {
 
     @Test

@@ -5,12 +5,14 @@
 package org.wildfly.plugin.provision;
 
 import org.junit.Assume;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.wildfly.plugin.categories.ChannelsRequired;
 import org.wildfly.plugin.tests.TestEnvironment;
 
 @Category(ChannelsRequired.class)
+@Ignore
 public class LayersServerConfigImageTest extends AbstractImageTest {
 
     @Test

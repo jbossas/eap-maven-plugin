@@ -61,7 +61,7 @@
                         <id>provision-wildfly</id>
                         <phase>generate-test-resources</phase>
                         <goals>
-                            <goal>provision</goal>
+                            <goal>package</goal>
                         </goals>
                     </execution>
                 </executions>
