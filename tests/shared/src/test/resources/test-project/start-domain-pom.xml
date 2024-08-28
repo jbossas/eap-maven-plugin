@@ -14,8 +14,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
                     <!-- Can't use the <server-type/> alias here as it doesn't get resolved in the test harness -->
                     <serverType>DOMAIN</serverType>

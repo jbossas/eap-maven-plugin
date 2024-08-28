@@ -37,7 +37,7 @@ import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 abstract class AbstractImageTest extends AbstractProvisionConfiguredMojoTestCase {
 
     public AbstractImageTest() {
-        super("wildfly-maven-plugin");
+        super("eap-maven-plugin");
     }
 
     @BeforeClass
