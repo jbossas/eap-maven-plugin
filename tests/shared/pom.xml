@@ -6,7 +6,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.wildfly.plugins</groupId>
+        <groupId>org.jboss.eap.plugins</groupId>
         <artifactId>wildfly-maven-plugin-tests</artifactId>
         <version>6.0.0.Beta4-SNAPSHOT</version>
     </parent>
@@ -20,12 +20,12 @@
             <artifactId>galleon-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wildfly.plugins</groupId>
-            <artifactId>wildfly-plugin-tools</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>eap-maven-plugin</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
