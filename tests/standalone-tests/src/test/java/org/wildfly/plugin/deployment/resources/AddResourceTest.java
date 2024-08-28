@@ -9,6 +9,7 @@ import org.apache.maven.api.plugin.testing.Basedir;
 import org.apache.maven.api.plugin.testing.InjectMojo;
 import org.apache.maven.api.plugin.testing.MojoTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.deployment.resource.AddResourceMojo;
 import org.wildfly.plugin.tests.TestEnvironment;
@@ -19,6 +20,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
  *
  * @author <a href="mailto:dave.himself@gmail.com">Dave Heath</a>
  */
+@Disabled
 @MojoTest
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

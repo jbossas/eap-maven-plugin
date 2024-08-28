@@ -9,7 +9,6 @@ import java.net.URL;
 
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.wildfly.plugin.common.PropertyNames;
 import org.wildfly.plugin.tools.Deployment;
@@ -25,7 +24,7 @@ import org.wildfly.plugin.tools.Deployment;
  * If {@code force} is set to {@code false} and the application has already been deployed to the server, an error
  * will occur and the deployment will fail.
  */
-@Mojo(name = "deploy-only", threadSafe = true)
+// @Mojo(name = "deploy-only", threadSafe = true)
 @Execute(phase = LifecyclePhase.NONE)
 public class DeployOnlyMojo extends DeployMojo {
 

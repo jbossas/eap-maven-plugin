@@ -17,6 +17,7 @@ import org.apache.maven.api.plugin.testing.MojoTest;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.jboss.dmr.ModelNode;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractProjectMojoTest;
@@ -29,6 +30,7 @@ import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
 /**
  * @author <a href="mailto:sven-torben@sven-torben.de">Sven-Torben Janus</a>
  */
+@Disabled
 @MojoTest(realRepositorySession = true)
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)

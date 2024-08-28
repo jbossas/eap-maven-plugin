@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.wildfly.plugin.common.AbstractServerConnection;
@@ -26,7 +25,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@Mojo(name = "shutdown")
+// @Mojo(name = "shutdown")
 public class ShutdownMojo extends AbstractServerConnection {
 
     /**

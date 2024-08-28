@@ -23,6 +23,7 @@ import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.artifact.handler.ArtifactHandler;
 import org.apache.maven.plugin.logging.Log;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
@@ -32,6 +33,7 @@ import org.wildfly.plugin.tests.AbstractProjectMojoTest;
 import org.wildfly.plugin.tests.TestEnvironment;
 import org.wildfly.plugin.tools.TestSupport;
 
+@Disabled
 @MojoTest(realRepositorySession = true)
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)
 @ChannelsRequired

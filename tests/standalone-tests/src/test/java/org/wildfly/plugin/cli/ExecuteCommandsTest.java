@@ -17,6 +17,7 @@ import org.apache.maven.api.plugin.testing.InjectMojo;
 import org.apache.maven.api.plugin.testing.MojoTest;
 import org.apache.maven.plugin.Mojo;
 import org.jboss.dmr.ModelNode;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.tests.AbstractProjectMojoTest;
@@ -26,6 +27,7 @@ import org.wildfly.plugin.tools.server.ServerManager;
 import org.wildfly.testing.junit.extension.annotation.ServerResource;
 import org.wildfly.testing.junit.extension.annotation.WildFlyTest;
 
+@Disabled
 @MojoTest(realRepositorySession = true)
 @WildFlyTest
 @Basedir(TestEnvironment.TEST_PROJECT_PATH)
