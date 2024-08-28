@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>wildfly-maven-plugin</artifactId>
+            <artifactId>eap-maven-plugin</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
