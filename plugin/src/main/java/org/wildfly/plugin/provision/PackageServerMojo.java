@@ -758,4 +758,8 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         return key.toString();
     }
 
+    @Override
+    protected void enrichRepositories() throws MojoExecutionException {
+        // NO-OP
+    }
 }
