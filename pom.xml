@@ -118,7 +118,6 @@
 
         <!-- galleon properties -->
         <version.org.jboss.galleon>7.0.5.Final</version.org.jboss.galleon>
-        <version.org.wildfly.glow>2.0.0.Beta2</version.org.wildfly.glow>
         <plugin.fork.embedded>true</plugin.fork.embedded>
 
         <!-- checkstyle configuration -->
@@ -371,10 +370,17 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <!-- Test dependencies -->
             <dependency>
-                <groupId>org.wildfly.glow</groupId>
-                <artifactId>wildfly-glow-core</artifactId>
-                <version>${version.org.wildfly.glow}</version>
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>${version.jakarta.json-api}</version>
+            </dependency>
+            <dependency> <!-- json-p ri -->
+                <groupId>org.eclipse.parsson</groupId>
+                <artifactId>parsson</artifactId>
+                <version>${version.org.eclipse.parsson}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.galleon</groupId>
