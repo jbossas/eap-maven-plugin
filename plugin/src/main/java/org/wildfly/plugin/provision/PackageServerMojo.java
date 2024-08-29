@@ -764,4 +764,8 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     protected String getProvisionedConfigurationFileName(String layersConfigurationFileName) {
         return bootableJar ? STANDALONE_XML : layersConfigurationFileName;
     }
+
+    protected void enrichRepositories() throws MojoExecutionException {
+        // NO-OP
+    }
 }
