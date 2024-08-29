@@ -32,13 +32,11 @@ import org.jboss.galleon.api.GalleonBuilder;
 import org.jboss.galleon.api.config.GalleonProvisioningConfig;
 import org.jboss.galleon.maven.plugin.util.MvnMessageWriter;
 import org.jboss.galleon.util.IoUtils;
-import org.wildfly.glow.ScanResults;
 import org.wildfly.plugin.cli.BaseCommandConfiguration;
 import org.wildfly.plugin.cli.CliSession;
 import org.wildfly.plugin.cli.OfflineCommandExecutor;
 import org.wildfly.plugin.common.PropertyNames;
 import org.wildfly.plugin.common.StandardOutput;
-import org.wildfly.plugin.common.Utils;
 import org.wildfly.plugin.deployment.MojoDeploymentException;
 import org.wildfly.plugin.deployment.PackageType;
 import org.wildfly.plugin.tools.bootablejar.BootableJarSupport;
@@ -178,61 +176,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     protected boolean skipDeployment;
 
     /**
-     * Galleon provisioning info discovery.
-     * <p>
-     * By enabling this feature, the set of Galleon feature-packs
-     * and layers are automatically discovered by scanning the deployed application.
-     * You can configure the following items:
-     * </p>
-     * <div>
-     * <ul>
-     * <li>addOns: List of addOn to enable. An addOn brings extra galleon layers to the provisioning (eg: {@code wildfly-cli} to
-     * include CLI.</li>
-     * <li>context: {@code bare-metal} or {@code cloud}. Default to {@code bare-metal}. Note that if the context is set to
-     * {@code cloud}
-     * and the plugin option {@code bootable-jar} is set, the plugin execution will abort.</li>
-     * <li>failsOnError: true|false. If errors are detected (missing datasource, missing messaging broker, ambiguous JNDI call,
-     * provisioning is aborted. Default to {@code false}</li>
-     * <li>layersForJndi: List of Galleon layers required by some JNDI calls located in your application.</li>
-     * <li>preview: {@code true} | {@code false}. Use preview feature-packs. Default to {@code false}.</li>
-     * <li>profile: {@code ha}. Default being non ha server configuration.</li>
-     * <li>suggest: {@code true} | {@code false}. Display addOns that you can use to enhance discovered provisioning
-     * configuration. Default to {@code false}.</li>
-     * <li>excludedArchives: List of archives contained in the deployment to exclude when scanning.
-     * Wildcards ({@code *}) are allowed. N.B. Just the name of the archive is matched, do not attempt
-     * to specify a full path within the jar. The following examples would be valid exclusions: {@code my-jar.jar},
-     * {@code *-internal.rar}.</li>
-     * <li>verbose: {@code true} | {@code false}. Display more information. The set of rules that selected Galleon layers are
-     * printed. Default to {@code false}.</li>
-     * <li>version: server version. Default being the latest released version.</li>
-     * <li>ignoreDeployment: The deployment will be not analyzed. A server based on the configured add-ons and the default base
-     * layer is provisioned. Default to {@code false}.</li>
-     *
-     * </ul>
-     * </div>
-     *
-     * For example, cloud, ha profile with CLI and openapi addOns enabled. mail layer being explicitly included:
-     *
-     * <pre>
-     *   &lt;discover-provisioning-info&gt;
-     *     &lt;context&gt;cloud&lt;/context&gt;
-     *     &lt;profile&gt;ha&lt;/profile&gt;
-     *     &lt;addOns&gt;
-     *       &lt;addOn&gt;wildfly-cli&lt;/addOn&gt;
-     *       &lt;addOn&gt;openapi&lt;/addOn&gt;
-     *     &lt;/addOns&gt;
-     *     &lt;layersForJndi&gt;
-     *       &lt;layer&gt;mail&lt;/layer&gt;
-     *     &lt;/layersForJndi&gt;
-     *   &lt;/discover-provisioning-info&gt;
-     * </pre>
-     *
-     * @since 5.0
-     */
-    @Parameter(alias = "discover-provisioning-info")
-    private GlowConfig discoverProvisioningInfo;
-
-    /**
      * Package the provisioned server into a WildFly Bootable JAR. In order to produce a hollow jar (a jar that doesn't contain
      * a deployment) set the { @code skipDeployment } parameter. A server packaged as bootable JAR is suited to run on
      * bare-metal.
@@ -281,35 +224,8 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     @Override
     protected GalleonProvisioningConfig buildGalleonConfig(GalleonBuilder pm)
             throws MojoExecutionException, ProvisioningException {
-        if (discoverProvisioningInfo == null) {
-            config = super.buildGalleonConfig(pm);
-            return config;
-        }
-        if (discoverProvisioningInfo.getContext() != null &&
-                GlowConfig.CLOUD_CONTEXT.equals(discoverProvisioningInfo.getContext()) &&
-                bootableJar) {
-            throw new MojoExecutionException("The option 'bootableJar' must not be set when "
-                    + "discovering provisioning information for the 'cloud' execution context.");
-        }
-        try {
-            try (ScanResults results = Utils.scanDeployment(discoverProvisioningInfo,
-                    layers,
-                    excludedLayers,
-                    featurePacks,
-                    dryRun,
-                    getLog(),
-                    getDeploymentContent(),
-                    artifactResolver,
-                    Paths.get(project.getBuild().getDirectory()),
-                    pm,
-                    galleonOptions,
-                    layersConfigurationFileName)) {
-                config = results.getProvisioningConfig();
-                return config;
-            }
-        } catch (Exception ex) {
-            throw new MojoExecutionException(ex.getLocalizedMessage(), ex);
-        }
+        config = super.buildGalleonConfig(pm);
+        return config;
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.wildfly.plugin.tests.AbstractProvisionConfiguredMojoTestCase;
 import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
@@ -51,6 +52,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testPackageWithChannelGlow() throws Exception {
 
         final Mojo packageMojo = lookupConfiguredMojo(
@@ -89,6 +91,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testGlowPackage() throws Exception {
 
         final Mojo packageMojo = lookupConfiguredMojo(
@@ -100,6 +103,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testGlowNoDeploymentPackage() throws Exception {
 
         final Mojo packageMojo = lookupConfiguredMojo(
