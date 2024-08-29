@@ -539,4 +539,8 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         IoUtils.recursiveDelete(log);
     }
 
+    @Override
+    protected void enrichRepositories() throws MojoExecutionException {
+        // NO-OP
+    }
 }
