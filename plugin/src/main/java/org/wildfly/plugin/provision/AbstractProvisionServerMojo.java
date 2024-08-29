@@ -214,15 +214,6 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
     @Parameter(alias = "channels", property = PropertyNames.CHANNELS)
     List<ChannelConfiguration> channels;
 
-    /**
-     * Do not actually provision a server but generate the Galleon provisioning configuration
-     * in {@code target/.wildfly-maven-plugin-provisioning.xml} file.
-     *
-     * @since 5.0
-     */
-    @Parameter(alias = "dry-run")
-    boolean dryRun;
-
     private Path wildflyDir;
 
     protected MavenRepoManager artifactResolver;
@@ -232,9 +223,6 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
         if (skip) {
             getLog().debug(String.format("Skipping " + getGoal() + " of %s:%s", project.getGroupId(), project.getArtifactId()));
             return;
-        }
-        if (dryRun) {
-            getLog().info("Dry run execution, no server will be provisioned.");
         }
         Path targetPath = Paths.get(project.getBuild().getDirectory());
         wildflyDir = targetPath.resolve(provisioningDir).normalize();
@@ -264,12 +252,10 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
         try {
             try {
                 provisionServer(wildflyDir);
-                if (!dryRun) {
-                    if (artifactResolver instanceof ChannelMavenArtifactRepositoryManager) {
-                        ((ChannelMavenArtifactRepositoryManager) artifactResolver).done(wildflyDir);
-                    }
-                    serverProvisioned(wildflyDir);
+                if (artifactResolver instanceof ChannelMavenArtifactRepositoryManager) {
+                    ((ChannelMavenArtifactRepositoryManager) artifactResolver).done(wildflyDir);
                 }
+                serverProvisioned(wildflyDir);
             } catch (ProvisioningException | IOException | XMLStreamException ex) {
                 throw new MojoExecutionException("Provisioning failed", ex);
             }
@@ -301,13 +287,6 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
                 .setLogTime(logProvisioningTime)
                 .setRecordState(recordProvisioningState)
                 .build()) {
-            if (dryRun) {
-                Path targetPath = Paths.get(project.getBuild().getDirectory());
-                Path file = targetPath.resolve(PLUGIN_PROVISIONING_FILE);
-                getLog().info("Dry-run execution, generating provisioning.xml file: " + file);
-                pm.storeProvisioningConfig(config, file);
-                return;
-            }
             getLog().info("Provisioning server in " + home);
             PluginProgressTracker.initTrackers(pm, new MavenJBossLogger(getLog()));
             pm.provision(config);
