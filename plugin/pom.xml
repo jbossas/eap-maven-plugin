@@ -126,38 +126,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.twdata.maven</groupId>
-            <artifactId>mojo-executor</artifactId>
-            <version>${version.org.twdata.maven}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-controller-client</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.wildfly.launcher</groupId>
             <artifactId>wildfly-launcher</artifactId>
-        </dependency>
-        <!-- Seems to be needed as the controller client is transitively bringing it in -->
-        <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-protocol</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.jboss.modules</groupId>
-                    <artifactId>jboss-modules</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -167,10 +142,22 @@
         <dependency>
             <groupId>org.wildfly.plugins</groupId>
             <artifactId>wildfly-plugin-tools</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.wildfly.channel</groupId>
             <artifactId>channel-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.ethlo.time</groupId>
+                    <artifactId>itu</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.wildfly.channel</groupId>
