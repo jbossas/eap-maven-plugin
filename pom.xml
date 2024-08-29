@@ -100,6 +100,10 @@
         <!-- Override the checkstyle version to be compatible with Java 11, see https://checkstyle.org/#JRE_and_JDK -->
         <version.checkstyle>12.3.1</version.checkstyle>
 
+        <version.org.apache.maven.resolver>1.9.25</version.org.apache.maven.resolver>
+        <!-- maven dependencies only required by tests -->
+        <version.org.apache.maven.wagon>3.5.3</version.org.apache.maven.wagon>
+
         <!-- other dependencies -->
         <version.com.bernardomg.maven.skins>2.4.1</version.com.bernardomg.maven.skins>
         <version.org.junit.jupitor>6.0.3</version.org.junit.jupitor>
@@ -232,17 +236,20 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <!-- Required for the dev goal and the maven-execute dependency -->
             <dependency>
-                <groupId>org.codehaus.plexus</groupId>
-                <artifactId>plexus-utils</artifactId>
-                <version>${version.org.codehaus.plexus}</version>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-http</artifactId>
+                <version>${version.org.apache.maven.wagon}</version>
             </dependency>
-            <!-- Required for the dev goal and the maven-execute dependency -->
             <dependency>
-                <groupId>org.codehaus.plexus</groupId>
-                <artifactId>plexus-xml</artifactId>
-                <version>${version.org.codehaus.plexus-xml}</version>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-transport-wagon</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-util</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.galleon</groupId>
