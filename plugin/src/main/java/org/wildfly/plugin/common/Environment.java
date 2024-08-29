@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+//import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,8 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.manager.WildFlySecurityManager;
+
+//import org.wildfly.security.manager.WildFlySecurityManager;
 
 /**
  * Utilities for the environment.
@@ -131,17 +132,17 @@ public class Environment {
     }
 
     private static Path findJavaHome() {
-        String path = WildFlySecurityManager.getPropertyPrivileged("java.home", null);
-        if (path != null) {
-            path = WildFlySecurityManager.getEnvPropertyPrivileged("JAVA_HOME", null);
-        }
-        if (path == null) {
-            return null;
-        }
-        Path resolved = Paths.get(path);
-        if (Files.exists(resolved)) {
-            return resolved;
-        }
+        // String path = WildFlySecurityManager.getPropertyPrivileged("java.home", null);
+        // if (path != null) {
+        // path = WildFlySecurityManager.getEnvPropertyPrivileged("JAVA_HOME", null);
+        // }
+        // if (path == null) {
+        // return null;
+        // }
+        // Path resolved = Paths.get(path);
+        // if (Files.exists(resolved)) {
+        // return resolved;
+        // }
         return null;
     }
 
