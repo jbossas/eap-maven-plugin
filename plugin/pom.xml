@@ -144,7 +144,7 @@
             <artifactId>wildfly-plugin-tools</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>*</groupId>
+                    <groupId>org.wildfly.core</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
