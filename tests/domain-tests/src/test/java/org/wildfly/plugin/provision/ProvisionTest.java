@@ -7,7 +7,6 @@ package org.wildfly.plugin.provision;
 import java.nio.file.Path;
 
 import org.apache.maven.plugin.Mojo;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.wildfly.plugin.categories.ChannelsRequired;
@@ -15,7 +14,7 @@ import org.wildfly.plugin.tests.AbstractProvisionConfiguredMojoTestCase;
 import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 
 @Category(ChannelsRequired.class)
-@Ignore
+>>>>>>> 8c45aeb3 ([CONVERSION COMMIT] Add back the provision goal)
 public class ProvisionTest extends AbstractProvisionConfiguredMojoTestCase {
 
     public ProvisionTest() {

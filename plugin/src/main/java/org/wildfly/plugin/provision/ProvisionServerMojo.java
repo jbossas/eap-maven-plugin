@@ -20,8 +20,7 @@ import org.wildfly.plugin.tools.GalleonUtils;
  * @author jfdenise
  * @since 3.0
  */
-// @Mojo(name = "provision", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase =
-// LifecyclePhase.PACKAGE)
+@Mojo(name = "provision", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase = LifecyclePhase.PACKAGE)
 public class ProvisionServerMojo extends AbstractProvisionServerMojo {
 
     @Override
