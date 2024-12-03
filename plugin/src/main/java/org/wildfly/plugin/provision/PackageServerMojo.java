@@ -17,28 +17,16 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
-import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.resolver.filter.AndArtifactFilter;
-import org.apache.maven.artifact.resolver.filter.ArtifactFilter;
-import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
-import org.apache.maven.shared.artifact.filter.PatternExcludesArtifactFilter;
-import org.apache.maven.shared.artifact.filter.PatternIncludesArtifactFilter;
-import org.apache.maven.shared.artifact.filter.ScopeArtifactFilter;
 import org.jboss.galleon.ProvisioningException;
 import org.jboss.galleon.api.GalleonBuilder;
 import org.jboss.galleon.api.config.GalleonProvisioningConfig;
@@ -55,22 +43,11 @@ import org.wildfly.plugin.tools.bootablejar.BootableJarSupport;
 
 /**
  * Provision a server, copy extra content and deploy primary artifact if it exists.
- * <p>
- * Additional deployments can also be resolved from the dependencies. Use the {@code <included-dependencies/>},
- * {@code <excluded-dependencies/>}, {@code <included-dependency-scope/>} and/or {@code <excluded-dependency-scope/>}
- * to deploy additional artifacts to the packaged server.
- * </p>
- * <p>
- * Note the {@code <included-dependencies/>}, {@code <excluded-dependencies/>}, {@code included-dependency-scope} and
- * {@code <excluded-ependency-scope/>} configuration properties are chained together and all checks must pass to be
- * included as additional deployments.
- * </p>
  *
  * @author jfdenise
  * @since 3.0
  */
-// Note we need the ResolutionScope to be "test" in order for the MavenProject.getArtifacts() to return all dependencies
-@Mojo(name = "package", requiresDependencyResolution = ResolutionScope.TEST, defaultPhase = LifecyclePhase.PACKAGE)
+@Mojo(name = "package", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, defaultPhase = LifecyclePhase.PACKAGE)
 public class PackageServerMojo extends AbstractProvisionServerMojo {
 
     @Deprecated(forRemoval = true, since = "5.1")
@@ -192,7 +169,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     private boolean skip;
 
     /**
-     * Skip deploying the deployments after the server is provisioned ({@code false} by default).
+     * Skip deploying the deployment after the server is provisioned ({@code false} by default).
      */
     @Parameter(defaultValue = "false", property = PropertyNames.SKIP_PACKAGE_DEPLOYMENT)
     protected boolean skipDeployment;
@@ -233,73 +210,10 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     @Parameter(alias = "bootable-jar-install-artifact-classifier", property = PropertyNames.BOOTABLE_JAR_INSTALL_CLASSIFIER, defaultValue = BootableJarSupport.BOOTABLE_SUFFIX)
     private String bootableJarInstallArtifactClassifier;
 
-    /**
-     * A list of the dependencies to include as deployments. These dependencies must be defined as dependencies in the
-     * project.
-     *
-     * <p>
-     * The pattern is {@code groupId:artifactId:type:classifier:version}. Each type may be left blank. A pattern can
-     * be prefixed with a {@code !} to negatively match the pattern. Note that it is best practice to place negative
-     * checks first.
-     * </p>
-     *
-     * <pre>
-     *     &lt;included-dependencies&gt;
-     *         &lt;included&gt;!org.wildfly.examples:*test*&lt;/included&gt;
-     *         &lt;included&gt;::war&lt;/included&gt;
-     *         &lt;included&gt;org.wildfly.examples&lt;/included&gt;
-     *     &lt;/included-dependencies&gt;
-     * </pre>
-     *
-     * @since 5.1
-     */
-    @Parameter(alias = "included-dependencies", property = "wildfly.included.dependencies")
-    private Set<String> includedDependencies = Set.of();
-
-    /**
-     * A list of the dependencies to exclude as deployments.
-     *
-     * <p>
-     * The pattern is {@code groupId:artifactId:type:classifier:version}. Each type may be left blank. A pattern can
-     * be prefixed with a {@code !} to negatively match the pattern. Note that it is best practice to place negative
-     * checks first.
-     * </p>
-     *
-     * <pre>
-     *     &lt;excluded-dependencies&gt;
-     *         &lt;excluded&gt;!org.wildfly.examples:*test*&lt;/excluded&gt;
-     *         &lt;excluded&gt;::jar&lt;/excluded&gt;
-     *     &lt;/excluded-dependencies&gt;
-     * </pre>
-     *
-     * @since 5.1
-     */
-    @Parameter(alias = "excluded-dependencies", property = "wildfly.excluded.dependencies")
-    private Set<String> excludedDependencies = Set.of();
-
-    /**
-     * Defines the scope of the dependencies to be included as deployments. This will deploy all dependencies defined
-     * in the scope to the packaged server. However, this does assume the dependency passes the
-     * {@code <included-dependencies/>}, {@code <excluded-dependencies/>} and {@code <excluded-dependency-scope/>} checks.
-     */
-    @Parameter(alias = "included-dependency-scope", property = "wildfly.included.dependency.scope")
-    private String includedDependencyScope;
-
-    /**
-     * Defines the scope of the dependencies to be excluded as deployments. This will deploy all dependencies
-     * <em>not</em> defined in the scope to the packaged server. However, this does assume the dependency passes the
-     * {@code <included-dependencies/>}, {@code <excluded-dependencies/>} and {@code <included-dependency-scope/>} checks.
-     */
-    @Parameter(alias = "excluded-dependency-scope", property = "wildfly.excluded.dependency.scope")
-    private String excludedDependencyScope;
-
     @Inject
     private OfflineCommandExecutor commandExecutor;
 
     private GalleonProvisioningConfig config;
-
-    // Used to only collect additional deployments once
-    private Map<String, Path> deployments;
 
     @Override
     protected GalleonProvisioningConfig getDefaultConfig() throws ProvisioningException {
@@ -345,54 +259,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         }
     }
 
-    private Map<String, Path> getDeployments() throws MojoExecutionException {
-        // Check if we've already processed the deployments
-        if (deployments != null) {
-            return deployments;
-        }
-        // If no filters are defined, we do not want to include any additional deployments.
-        if (includedDependencies.isEmpty() && excludedDependencies.isEmpty() && includedDependencyScope == null
-                && excludedDependencyScope == null) {
-            return Map.of();
-        }
-        final List<ArtifactFilter> filters = new ArrayList<>();
-        // Map the dependencies to a known key format
-        final Set<String> dependenciesIds = project.getDependencies()
-                .stream()
-                .map(PackageServerMojo::createKey)
-                .collect(Collectors.toSet());
-        // Create a filter to only allow artifacts which are included as dependencies
-        final ArtifactFilter dependencyFilter = artifact -> dependenciesIds.contains(createKey(artifact));
-        filters.add(dependencyFilter);
-        if (!includedDependencies.isEmpty()) {
-            filters.add(new PatternIncludesArtifactFilter(includedDependencies));
-        }
-        if (!excludedDependencies.isEmpty()) {
-            filters.add(new PatternExcludesArtifactFilter(excludedDependencies));
-        }
-        if (includedDependencyScope != null) {
-            filters.add(createScopeFilter(includedDependencyScope, true));
-        }
-        if (excludedDependencyScope != null) {
-            filters.add(createScopeFilter(excludedDependencyScope, false));
-        }
-        final ArtifactFilter filter = new AndArtifactFilter(filters);
-        final Set<Artifact> projectArtifacts = project.getArtifacts();
-        final Set<Artifact> deployments = projectArtifacts.stream()
-                .filter(filter::include)
-                .collect(Collectors.toSet());
-        final Map<String, Path> deploymentPaths = new LinkedHashMap<>();
-        for (var artifact : deployments) {
-            final File f = artifact.getFile();
-            if (f == null) {
-                throw new MojoExecutionException("Deployment not found " + artifact);
-            }
-            final Path p = f.toPath();
-            deploymentPaths.put(p.getFileName().toString(), p);
-        }
-        return this.deployments = Map.copyOf(deploymentPaths);
-    }
-
     @Override
     protected void serverProvisioned(Path jbossHome) throws MojoExecutionException, MojoFailureException {
         try {
@@ -413,15 +279,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
             Path primaryDeployment = getDeploymentContent();
             if (primaryDeployment != null) {
                 deploy(primaryDeployment, getDeploymentTargetName());
-            }
-            // Handle extra deployments
-            try {
-                Map<String, Path> extraPaths = getDeployments();
-                for (Entry<String, Path> p : extraPaths.entrySet()) {
-                    deploy(p.getValue(), p.getKey());
-                }
-            } catch (Exception ex) {
-                throw new MojoExecutionException(ex.getLocalizedMessage(), ex);
             }
         }
 
@@ -606,60 +463,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         IoUtils.recursiveDelete(tmp);
         Path log = jbossHome.resolve("standalone").resolve("log");
         IoUtils.recursiveDelete(log);
-    }
-
-    private static ArtifactFilter createScopeFilter(final String scope, final boolean includeScope) {
-        final ScopeArtifactFilter filter = new ScopeArtifactFilter();
-        switch (scope) {
-            case Artifact.SCOPE_COMPILE:
-                filter.setIncludeCompileScope(true);
-                break;
-            case Artifact.SCOPE_PROVIDED:
-                filter.setIncludeProvidedScope(true);
-                break;
-            case Artifact.SCOPE_RUNTIME:
-                filter.setIncludeRuntimeScope(true);
-                break;
-            case Artifact.SCOPE_TEST:
-                filter.setIncludeTestScope(true);
-                break;
-            case Artifact.SCOPE_SYSTEM:
-                filter.setIncludeSystemScope(true);
-                break;
-        }
-        return includeScope ? filter : artifact -> !filter.include(artifact);
-    }
-
-    private static String createKey(final Dependency dependency) {
-        final StringBuilder key = new StringBuilder()
-                .append(dependency.getGroupId())
-                .append(':')
-                .append(dependency.getArtifactId())
-                .append(':')
-                .append(dependency.getType());
-        if (dependency.getClassifier() != null) {
-            key.append(':')
-                    .append(dependency.getClassifier());
-        }
-        key.append(':')
-                .append(dependency.getVersion());
-        return key.toString();
-    }
-
-    private static String createKey(final Artifact artifact) {
-        final StringBuilder key = new StringBuilder()
-                .append(artifact.getGroupId())
-                .append(':')
-                .append(artifact.getArtifactId())
-                .append(':')
-                .append(artifact.getType());
-        if (artifact.getClassifier() != null) {
-            key.append(':')
-                    .append(artifact.getClassifier());
-        }
-        key.append(':')
-                .append(artifact.getVersion());
-        return key.toString();
     }
 
     @Override

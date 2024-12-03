@@ -147,6 +147,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testNoMultipleDeploymentsPackage() throws Exception {
         final Mojo packageMojo = lookupConfiguredMojo(
                 AbstractWildFlyMojoTest.getPomFile("package-no-multiple-deployments-pom.xml").toFile(), "package");
@@ -158,6 +159,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testMultipleDeploymentsPackage() throws Exception {
         final Mojo packageMojo = lookupConfiguredMojo(
                 AbstractWildFlyMojoTest.getPomFile("package-multiple-deployments-pom.xml").toFile(), "package");
@@ -168,6 +170,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testMultipleDeploymentsMissingPackage() throws Exception {
         final Mojo packageMojo = lookupConfiguredMojo(
                 AbstractWildFlyMojoTest.getPomFile("package-multiple-deployments-missing-pom.xml").toFile(), "package");
