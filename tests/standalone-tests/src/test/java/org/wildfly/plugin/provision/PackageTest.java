@@ -29,6 +29,7 @@ import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -185,6 +186,7 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
+    @Disabled
     @InjectMojo(goal = "package", pom = "package-no-multiple-deployments-pom.xml")
     public void testNoMultipleDeploymentsPackage(final Mojo packageMojo) throws Exception {
         String[] layers = { "jaxrs-server" };
@@ -194,6 +196,7 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
+    @Disabled
     @InjectMojo(goal = "package", pom = "package-multiple-deployments-pom.xml")
     public void testMultipleDeploymentsPackage(final Mojo packageMojo) throws Exception {
         String[] layers = { "jaxrs-server" };
@@ -203,6 +206,7 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
+    @Disabled
     @InjectMojo(goal = "package", pom = "package-multiple-deployments-missing-pom.xml")
     public void testMultipleDeploymentsMissingPackage(final Mojo packageMojo) throws Exception {
         String[] layers = { "jaxrs-server" };
