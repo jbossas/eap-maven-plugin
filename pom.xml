@@ -222,19 +222,24 @@
                 <version>${version.org.apache.maven.plugin-tools}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.maven.shared</groupId>
-                <artifactId>maven-common-artifact-filters</artifactId>
-                <version>${version.org.apache.maven.shared.filter}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.maven.resolver</groupId>
-                        <artifactId>maven-resolver-util</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-api</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-spi</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-impl</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.resolver</groupId>
+                <artifactId>maven-resolver-connector-basic</artifactId>
+                <version>${version.org.apache.maven.resolver}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.wagon</groupId>
