@@ -14,7 +14,6 @@ import org.wildfly.plugin.tests.AbstractProvisionConfiguredMojoTestCase;
 import org.wildfly.plugin.tests.AbstractWildFlyMojoTest;
 
 @Category(ChannelsRequired.class)
->>>>>>> 8c45aeb3 ([CONVERSION COMMIT] Add back the provision goal)
 public class ProvisionTest extends AbstractProvisionConfiguredMojoTestCase {
 
     public ProvisionTest() {
