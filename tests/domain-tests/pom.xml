@@ -78,6 +78,10 @@
         <dependency>
             <groupId>org.wildfly.testing</groupId>
             <artifactId>wildfly-junit-extension</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.channel</groupId>
+            <artifactId>channel-core</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

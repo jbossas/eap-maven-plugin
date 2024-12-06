@@ -79,14 +79,18 @@ public abstract class AbstractProjectMojoTest {
      * @param project the project to configure
      */
     private static void initializeProject(final MavenProject project) {
-        final var serverVersion = System.getProperty("version.org.wildfly");
         final var projectProperties = project.getProperties();
+        projectProperties.setProperty("wildfly.test.channel.groupId", System.getProperty("wildfly.test.channel.groupId", ""));
+        projectProperties.setProperty("wildfly.test.channel.artifactId",
+                System.getProperty("wildfly.test.channel.artifactId", ""));
+        final var serverVersion = System.getProperty("version.org.wildfly");
+
         if (serverVersion == null || serverVersion.isBlank()) {
             projectProperties.setProperty("wildfly.test.universe.location",
-                    "wildfly@maven(org.jboss.universe:community-universe)");
+                    "org.jboss.eap:wildfly-ee-galleon-pack");
         } else {
             projectProperties.setProperty("wildfly.test.universe.location",
-                    "wildfly@maven(org.jboss.universe:community-universe)#%s".formatted(serverVersion));
+                    "org.jboss.eap:wildfly-ee-galleon-pack:%s".formatted(serverVersion));
         }
         if (TestEnvironment.WILDFLY_HOME != null) {
             projectProperties.setProperty("jboss.home", TestEnvironment.WILDFLY_HOME.toString());

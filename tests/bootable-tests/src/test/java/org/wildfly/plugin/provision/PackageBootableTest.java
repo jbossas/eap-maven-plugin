@@ -133,7 +133,7 @@ public class PackageBootableTest extends AbstractProjectMojoTest {
     @InjectMojo(goal = "package", pom = "package-bootable-config-name-pom.xml")
     public void testConfigNamePackage(final Mojo packageMojo) throws Exception {
         packageMojo.execute();
-        final String[] layers = { "microprofile-config" };
+        final String[] layers = { "jdr" };
         final String deploymentName = "test.war";
         checkAndGetWildFlyHome(PROJECT_TARGET_DIR, BOOTABLE_JAR_NAME, deploymentName, true, layers,
                 null,

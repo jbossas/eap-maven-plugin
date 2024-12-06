@@ -32,6 +32,14 @@
                     <included-dependencies>
                         <include>org.foo:bar:war</include>
                     </included-dependencies>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>${wildfly.test.channel.groupId}</groupId>
+                                <artifactId>${wildfly.test.channel.artifactId}</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <feature-packs>
                         <feature-pack>
                             <location>${wildfly.test.universe.location}</location>
