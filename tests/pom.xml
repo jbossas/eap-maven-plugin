@@ -30,12 +30,13 @@
         <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
 
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
-
-        <wildfly.feature.pack.groupId>org.wildfly</wildfly.feature.pack.groupId>
+        <!-- test properties for product -->
+        <wildfly.test.server.producer>org.jboss.eap:wildfly-ee-galleon-pack</wildfly.test.server.producer>
+        <wildfly.feature.pack.groupId>org.jboss.eap</wildfly.feature.pack.groupId>
         <wildfly.feature.pack.artifactId>wildfly-ee-galleon-pack</wildfly.feature.pack.artifactId>
 
-        <wildfly.channel.manifest.groupId>org.wildfly.channels</wildfly.channel.manifest.groupId>
-        <wildfly.channel.manifest.artifactId>wildfly-ee</wildfly.channel.manifest.artifactId>
+        <wildfly.channel.manifest.groupId>org.jboss.eap.channels</wildfly.channel.manifest.groupId>
+        <wildfly.channel.manifest.artifactId>eap-8.1</wildfly.channel.manifest.artifactId>
 
         <!-- Skip deploying tests -->
         <central.skipPublishing>true</central.skipPublishing>
@@ -137,6 +138,25 @@
                         <goals>
                             <goal>provision</goal>
                         </goals>
+                        <configuration>
+                            <channels>
+                                <channel>
+                                    <manifest>
+                                        <groupId>${wildfly.channel.manifest.groupId}</groupId>
+                                        <artifactId>${wildfly.channel.manifest.artifactId}</artifactId>
+                                    </manifest>
+                                </channel>
+                            </channels>
+                            <feature-packs>
+                                <feature-pack>
+                                    <location>${wildfly.test.server.producer}</location>
+                                </feature-pack>
+                            </feature-packs>
+                            <provisioning-dir>${project.build.directory}/wildfly</provisioning-dir>
+                            <galleon-options>
+                                <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
+                            </galleon-options>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -149,6 +169,11 @@
                         <jboss-as.home>${jboss.home}</jboss-as.home>
                         <wildfly.test.version>${version.org.wildfly}</wildfly.test.version>
                         <grpc.test.version>${grpcVersion}</grpc.test.version>
+                        <wildfly.test.server.producer>${wildfly.test.server.producer}</wildfly.test.server.producer>
+                        <wildfly.test.channel.groupId>${wildfly.channel.manifest.groupId}</wildfly.test.channel.groupId>
+                        <wildfly.test.channel.artifactId>${wildfly.channel.manifest.artifactId}</wildfly.test.channel.artifactId>
+                        <wildfly.management.port>10099</wildfly.management.port>
+                        <wildfly.test.config.dir>${wildfly.test.config.dir}</wildfly.test.config.dir>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
