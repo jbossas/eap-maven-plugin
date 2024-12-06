@@ -63,6 +63,25 @@
                         <goals>
                             <goal>package</goal>
                         </goals>
+                        <configuration>
+                            <channels>
+                                <channel>
+                                    <manifest>
+                                        <groupId>${wildfly.channel.groupId}</groupId>
+                                        <artifactId>${wildfly.channel.artifactId}</artifactId>
+                                    </manifest>
+                                </channel>
+                            </channels>
+                            <feature-packs>
+                                <feature-pack>
+                                    <location>${wildfly.test.server.producer}</location>
+                                </feature-pack>
+                            </feature-packs>
+                            <provisioning-dir>${project.build.directory}/wildfly</provisioning-dir>
+                            <galleon-options>
+                                <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
+                            </galleon-options>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -75,6 +94,9 @@
                         <jboss-as.home>${jboss.home}</jboss-as.home>
                         <wildfly.test.version>${version.org.wildfly}</wildfly.test.version>
                         <grpc.test.version>${grpcVersion}</grpc.test.version>
+                        <wildfly.test.server.producer>${wildfly.test.server.producer}</wildfly.test.server.producer>
+                        <wildfly.test.channel.groupId>${wildfly.channel.groupId}</wildfly.test.channel.groupId>
+                        <wildfly.test.channel.artifactId>${wildfly.channel.artifactId}</wildfly.test.channel.artifactId>
                         <wildfly.management.port>10099</wildfly.management.port>
                         <wildfly.test.config.dir>${wildfly.test.config.dir}</wildfly.test.config.dir>
                     </systemPropertyVariables>

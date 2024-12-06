@@ -72,6 +72,12 @@ public abstract class AbstractProvisionConfiguredMojoTestCase extends AbstractMo
     private static final String TEST_REPLACE_BASE_DIR_ABSOLUTE_URL = "WF_BASE_DIR_ABSOLUTE_URL";
     static final String WILDFLY_VERSION = "wildfly.test.version";
     static final String GRPC_VERSION = "grpc.test.version";
+    private static final String TEST_REPLACE_SERVER_PRODUCER = "SERVER_PRODUCER";
+    private static final String TEST_REPLACE_CHANNEL_GROUP_ID = "CHANNEL_GROUP_ID";
+    private static final String TEST_REPLACE_CHANNEL_ARTIFACT_ID = "CHANNEL_ARTIFACT_ID";
+    static final String WILDFLY_SERVER_PRODUCER = "wildfly.test.server.producer";
+    static final String WILDFLY_CHANNEL_GROUP_ID = "wildfly.test.channel.groupId";
+    static final String WILDFLY_CHANNEL_ARTIFACT_ID = "wildfly.test.channel.artifactId";
     private final String artifactId;
 
     protected AbstractProvisionConfiguredMojoTestCase(String artifactId) {
@@ -162,6 +168,15 @@ public abstract class AbstractProvisionConfiguredMojoTestCase extends AbstractMo
                     version = "#" + version;
                 }
                 s = s.replace(TEST_REPLACE_LOC_WF_VERSION, version);
+            }
+            if (s.contains(TEST_REPLACE_CHANNEL_GROUP_ID)) {
+                s = s.replace(TEST_REPLACE_CHANNEL_GROUP_ID, System.getProperty(WILDFLY_CHANNEL_GROUP_ID));
+            }
+            if (s.contains(TEST_REPLACE_CHANNEL_ARTIFACT_ID)) {
+                s = s.replace(TEST_REPLACE_CHANNEL_ARTIFACT_ID, System.getProperty(WILDFLY_CHANNEL_ARTIFACT_ID));
+            }
+            if (s.contains(TEST_REPLACE_SERVER_PRODUCER)) {
+                s = s.replace(TEST_REPLACE_SERVER_PRODUCER, System.getProperty(WILDFLY_SERVER_PRODUCER));
             }
             if (s.contains(TEST_REPLACE_WF_VERSION)) {
                 s = s.replace(TEST_REPLACE_WF_VERSION, System.getProperty(WILDFLY_VERSION));
