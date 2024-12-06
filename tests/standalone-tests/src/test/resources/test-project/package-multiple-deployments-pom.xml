@@ -52,9 +52,17 @@
                         <included>::jar</included>
                     </included-dependencies>
                     <excluded-dependency-scope>test</excluded-dependency-scope>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>CHANNEL_GROUP_ID</groupId>
+                                <artifactId>CHANNEL_ARTIFACT_ID</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <feature-packs>
                         <feature-pack>
-                            <location>wildfly@maven(org.jboss.universe:community-universe)#WF_VERSION</location>
+                            <location>SERVER_PRODUCER</location>
                         </feature-pack>
                     </feature-packs>
                     <layers>

@@ -44,9 +44,17 @@
                             <goal>package</goal>
                         </goals>
                         <configuration>
+                            <channels>
+                                <channel>
+                                    <manifest>
+                                        <groupId>${wildfly.channel.groupId}</groupId>
+                                        <artifactId>${wildfly.channel.artifactId}</artifactId>
+                                    </manifest>
+                                </channel>
+                            </channels>
                             <feature-packs>
                                 <feature-pack>
-                                    <location>wildfly@maven(org.jboss.universe:community-universe)#${version.org.wildfly}</location>
+                                    <location>${wildfly.test.server.producer}</location>
                                 </feature-pack>
                             </feature-packs>
                             <provisioning-dir>${project.build.directory}/wildfly</provisioning-dir>
@@ -65,6 +73,9 @@
                         <jboss.home>${jboss.home}</jboss.home>
                         <jboss-as.home>${jboss.home}</jboss-as.home>
                         <wildfly.test.version>${version.org.wildfly}</wildfly.test.version>
+                        <wildfly.test.server.producer>${wildfly.test.server.producer}</wildfly.test.server.producer>
+                        <wildfly.test.channel.groupId>${wildfly.channel.groupId}</wildfly.test.channel.groupId>
+                        <wildfly.test.channel.artifactId>${wildfly.channel.artifactId}</wildfly.test.channel.artifactId>
                         <wildfly.management.port>10099</wildfly.management.port>
                         <wildfly.test.config.dir>${wildfly.test.config.dir}</wildfly.test.config.dir>
                     </systemPropertyVariables>

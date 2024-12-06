@@ -19,15 +19,14 @@
                     <channels>
                         <channel>
                             <manifest>
-                                <groupId>org.wildfly.channels</groupId>
-                                <artifactId>wildfly</artifactId>
-                                <version>WF_VERSION</version>
+                                <groupId>CHANNEL_GROUP_ID</groupId>
+                                <artifactId>CHANNEL_ARTIFACT_ID</artifactId>
                             </manifest>
                         </channel>
                     </channels>
                     <feature-packs>
                         <feature-pack>
-                            <location>org.wildfly:wildfly-galleon-pack:WF_VERSION</location>
+                            <location>SERVER_PRODUCER</location>
                         </feature-pack>
                     </feature-packs>
                     <layers>

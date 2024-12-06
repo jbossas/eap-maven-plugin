@@ -16,9 +16,17 @@
                 <groupId>org.jboss.eap.plugins</groupId>
                 <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>CHANNEL_GROUP_ID</groupId>
+                                <artifactId>CHANNEL_ARTIFACT_ID</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <feature-packs>
                         <feature-pack>
-                            <location>wildfly@maven(org.jboss.universe:community-universe)#WF_VERSION</location>
+                            <location>SERVER_PRODUCER</location>
                             <inherit-configs>true</inherit-configs>
                             <inherit-packages>true</inherit-packages>
                         </feature-pack>
