@@ -52,6 +52,14 @@
                         <included>::jar</included>
                     </included-dependencies>
                     <excluded-dependency-scope>test</excluded-dependency-scope>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>${wildfly.test.channel.groupId}</groupId>
+                                <artifactId>${wildfly.test.channel.artifactId}</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <feature-packs>
                         <feature-pack>
                             <location>${wildfly.test.universe.location}</location>
