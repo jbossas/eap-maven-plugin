@@ -141,7 +141,7 @@
         <!-- test properties for product -->
         <wildfly.test.server.producer>org.jboss.eap:wildfly-ee-galleon-pack</wildfly.test.server.producer>
         <wildfly.channel.groupId>org.jboss.eap.channels</wildfly.channel.groupId>
-        <wildfly.channel.artifactId>eap-8.0</wildfly.channel.artifactId>
+        <wildfly.channel.artifactId>eap-8.1</wildfly.channel.artifactId>
     </properties>
 
     <modules>
