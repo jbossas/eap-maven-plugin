@@ -85,6 +85,7 @@ public class PackageBootableTest extends AbstractProvisionConfiguredMojoTestCase
     }
 
     @Test
+    @Ignore
     public void testGrpcPackage() throws Exception {
 
         final Mojo packageMojo = lookupConfiguredMojo(

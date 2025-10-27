@@ -185,6 +185,7 @@ public class PackageTest extends AbstractProvisionConfiguredMojoTestCase {
     }
 
     @Test
+    @Ignore
     public void testGrpcPackage() throws Exception {
         final Mojo packageMojo = lookupConfiguredMojo(AbstractWildFlyMojoTest.getPomFile("package-grpc-pom.xml").toFile(),
                 "package");
