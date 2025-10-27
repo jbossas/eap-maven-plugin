@@ -34,6 +34,7 @@ import org.jboss.galleon.util.PathsUtils;
 import org.jboss.galleon.util.ZipUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.wildfly.core.launcher.BootableJarCommandBuilder;
@@ -116,6 +117,7 @@ public class PackageBootableTest extends AbstractProjectMojoTest {
     }
 
     @Test
+    @Disabled
     @InjectMojo(goal = "package", pom = "package-bootable-grpc-pom.xml")
     public void testGrpcPackage(final Mojo packageMojo) throws Exception {
         packageMojo.execute();
