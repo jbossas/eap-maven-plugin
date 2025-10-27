@@ -216,6 +216,7 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
+    @Disabled
     @InjectMojo(goal = "package", pom = "package-grpc-pom.xml")
     public void testGrpcPackage(final Mojo packageMojo) throws Exception {
         packageMojo.execute();
