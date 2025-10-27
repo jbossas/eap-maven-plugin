@@ -18,7 +18,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -212,16 +211,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
     @Parameter(alias = "bootable-jar-install-artifact-classifier", property = PropertyNames.BOOTABLE_JAR_INSTALL_CLASSIFIER, defaultValue = BootableJarSupport.BOOTABLE_SUFFIX)
     private String bootableJarInstallArtifactClassifier;
 
-    /**
-     * Defines the stability level used for {@code <packagingScripts/>}. Please note that when you define a stability
-     * level less than the default for the server you're using, you must define the {@code --stability} argument when
-     * booting the JAR.
-     *
-     * @since 5.1.3.Final
-     */
-    @Parameter(property = "wildfly.stability")
-    private String stability;
-
     @Inject
     private OfflineCommandExecutor commandExecutor;
 
@@ -347,7 +336,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         BootableJarSupport.packageBootableJar(targetJarFile, targetPath,
                 activeConfig, jbossHome,
                 artifactResolver,
-                new MvnMessageWriter(getLog()), stability == null ? null : stability);
+                new MvnMessageWriter(getLog()), null);
         attachJar(targetJarFile);
         getLog().info("Bootable JAR packaging DONE. To run the server: java -jar " + targetJarFile);
 
@@ -388,12 +377,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
         if (!layersConfigurationFileName.equals(STANDALONE_XML)) {
             serverConfigName = layersConfigurationFileName;
         }
-        if (stability != null) {
-            offlineCommands.add(
-                    "embed-server --server-config=" + serverConfigName + " --stability=" + stability.toLowerCase(Locale.ROOT));
-        } else {
-            offlineCommands.add("embed-server --server-config=" + serverConfigName);
-        }
+        offlineCommands.add("embed-server --server-config=" + serverConfigName);
         offlineCommands.addAll(commands);
         offlineCommands.add("stop-embedded-server");
         return offlineCommands;
