@@ -13,12 +13,20 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>CHANNEL_GROUP_ID</groupId>
+                                <artifactId>CHANNEL_ARTIFACT_ID</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <feature-packs>
                         <feature-pack>
-                            <location>wildfly@maven(org.jboss.universe:community-universe)#WF_VERSION</location>
+                            <location>SERVER_PRODUCER</location>
                             <inheritConfigs>false</inheritConfigs>
                             <inheritPackages>false</inheritPackages>
                             <includedConfigs>
@@ -30,7 +38,7 @@
                         </feature-pack>
                     </feature-packs>
                     <layers>
-                        <layer>microprofile-config</layer>
+                        <layer>jdr</layer>
                     </layers>
                     <filename>test.war</filename>
                     <layers-configuration-file-name>standalone-ha.xml</layers-configuration-file-name>

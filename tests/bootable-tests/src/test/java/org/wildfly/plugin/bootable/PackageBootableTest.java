@@ -103,7 +103,7 @@ public class PackageBootableTest extends AbstractProvisionConfiguredMojoTestCase
         final Mojo packageMojo = lookupConfiguredMojo(
                 AbstractWildFlyMojoTest.getPomFile("package-bootable-config-name-pom.xml").toFile(), "package");
         packageMojo.execute();
-        String[] layers = { "microprofile-config" };
+        String[] layers = { "jdr" };
         String deploymentName = "test.war";
         checkJar(AbstractWildFlyMojoTest.getBaseDir(), BOOTABLE_JAR_NAME, deploymentName,
                 true, layers, null, "standalone-ha.xml", true, "jgroups");
