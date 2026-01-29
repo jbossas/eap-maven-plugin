@@ -118,5 +118,9 @@ public abstract class AbstractProjectMojoTest {
                         new DefaultRepositoryLayout(), snapshot, release));
         request.addRemoteRepository(new MavenArtifactRepository("redhat-ga", "https://maven.repository.redhat.com/ga/",
                 new DefaultRepositoryLayout(), snapshot, release));
+        // 8.2 specific
+        request.addRemoteRepository(new MavenArtifactRepository("brew-8.2",
+                "https://download.devel.redhat.com/brewroot/repos/jb-eap-8.2-maven-build/latest/maven/",
+                new DefaultRepositoryLayout(), snapshot, release));
     }
 }

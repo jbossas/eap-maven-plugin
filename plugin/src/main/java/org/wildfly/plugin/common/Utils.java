@@ -21,11 +21,13 @@ import org.jboss.galleon.api.GalleonFeaturePack;
 import org.jboss.galleon.api.Provisioning;
 import org.jboss.galleon.api.config.GalleonProvisioningConfig;
 import org.jboss.galleon.universe.maven.repo.MavenRepoManager;
+import org.wildfly.channel.ChannelSession;
 import org.wildfly.glow.Arguments;
 import org.wildfly.glow.GlowSession;
 import org.wildfly.glow.ScanResults;
 import org.wildfly.glow.error.ErrorLevel;
 import org.wildfly.glow.error.IdentifiedError;
+import org.wildfly.plugin.provision.ChannelMavenArtifactRepositoryManager;
 import org.wildfly.plugin.provision.GlowConfig;
 import org.wildfly.plugin.tools.GalleonUtils;
 
@@ -158,8 +160,13 @@ public class Utils {
                 p.storeProvisioningConfig(in, inProvisioningFile);
             }
         }
+
+        ChannelSession session = null;
+        if (artifactResolver instanceof ChannelMavenArtifactRepositoryManager) {
+            session = ((ChannelMavenArtifactRepositoryManager) artifactResolver).getChannelSession();
+        }
         Arguments arguments = discoverProvisioningInfo.toArguments(log, deploymentContents, inProvisioningFile,
-                layersConfigurationFileName);
+                layersConfigurationFileName, session);
         log.info("Glow is scanning... ");
         ScanResults results;
         GlowMavenMessageWriter writer = new GlowMavenMessageWriter(log);

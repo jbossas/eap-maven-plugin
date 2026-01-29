@@ -16,6 +16,14 @@
                 <groupId>org.jboss.eap.plugins</groupId>
                 <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>${wildfly.test.channel.groupId}</groupId>
+                                <artifactId>${wildfly.test.channel.artifactId}</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <filename>test.war</filename>
                     <record-provisioning-state>true</record-provisioning-state>
                     <provisioning-dir>packaged-bootable-glow-server</provisioning-dir>
@@ -23,9 +31,8 @@
                     <bootable-jar-name>server-bootable.jar</bootable-jar-name>
                     <discover-provisioning-info>
                         <addOns>
-                            <addOn>openapi</addOn>
+                            <addOn>wildfly-cli</addOn>
                         </addOns>
-                        <version>${version.org.wildfly}</version>
                     </discover-provisioning-info>
                 </configuration>
             </plugin>
