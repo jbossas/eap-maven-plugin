@@ -36,7 +36,7 @@
         <wildfly.feature.pack.artifactId>wildfly-ee-galleon-pack</wildfly.feature.pack.artifactId>
 
         <wildfly.channel.manifest.groupId>org.jboss.eap.channels</wildfly.channel.manifest.groupId>
-        <wildfly.channel.manifest.artifactId>eap-8.1</wildfly.channel.manifest.artifactId>
+        <wildfly.channel.manifest.artifactId>eap-8.2</wildfly.channel.manifest.artifactId>
 
         <!-- Skip deploying tests -->
         <central.skipPublishing>true</central.skipPublishing>

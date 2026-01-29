@@ -19,7 +19,8 @@
                     <channels>
                         <channel>
                             <manifest>
-                                <url>${test.project.baseuri}/wildfly-39.0.0.Final-manifest.yaml</url>
+                                <groupId>${wildfly.test.channel.groupId}</groupId>
+                                <artifactId>${wildfly.test.channel.artifactId}</artifactId>
                             </manifest>
                         </channel>
                     </channels>

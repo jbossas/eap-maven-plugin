@@ -16,14 +16,21 @@
                 <groupId>org.jboss.eap.plugins</groupId>
                 <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>${wildfly.test.channel.groupId}</groupId>
+                                <artifactId>${wildfly.test.channel.artifactId}</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <record-provisioning-state>true</record-provisioning-state>
                     <provisioning-dir>packaged-glow-no-deployment-server</provisioning-dir>
                     <discover-provisioning-info>
                         <addOns>
-                            <addOn>openapi</addOn>
+                            <addOn>wildfly-cli</addOn>
                         </addOns>
                         <ignoreDeployment>true</ignoreDeployment>
-                        <version>${version.org.wildfly}</version>
                     </discover-provisioning-info>
                     <galleon-options>
                         <!-- Fork the process to avoid a two controller-client's from being on the class path -->

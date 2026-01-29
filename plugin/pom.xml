@@ -166,6 +166,12 @@
             <groupId>org.wildfly.glow</groupId>
             <artifactId>wildfly-glow-core</artifactId>
         </dependency>
+
+        <!-- EAP deps -->
+        <dependency>
+          <groupId>org.jboss.eap.glow.metadata</groupId>
+          <artifactId>jboss-eap-glow-metadata-api</artifactId>
+        </dependency>
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

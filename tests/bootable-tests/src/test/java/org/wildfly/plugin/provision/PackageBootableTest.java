@@ -96,7 +96,7 @@ public class PackageBootableTest extends AbstractProjectMojoTest {
         // We need to delete the directory from previous runs without a "clean" executed. This will happen when
         // there are defined javaXX.home properties are set.
         deleteProvisioned("packaged-bootable-glow-server");
-        final String[] layers = { "ee-core-profile-server", "microprofile-openapi" };
+        final String[] layers = { "ee-core-profile-server", "core-tools" };
         packageMojo.execute();
         final String deploymentName = "test.war";
         checkJar(PROJECT_TARGET_DIR, BOOTABLE_JAR_NAME, deploymentName,

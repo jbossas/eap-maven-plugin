@@ -193,7 +193,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
      * <li>failsOnError: true|false. If errors are detected (missing datasource, missing messaging broker, ambiguous JNDI call,
      * provisioning is aborted. Default to {@code false}</li>
      * <li>layersForJndi: List of Galleon layers required by some JNDI calls located in your application.</li>
-     * <li>preview: {@code true} | {@code false}. Use preview feature-packs. Default to {@code false}.</li>
      * <li>profile: {@code ha}. Default being non ha server configuration.</li>
      * <li>suggest: {@code true} | {@code false}. Display addOns that you can use to enhance discovered provisioning
      * configuration. Default to {@code false}.</li>
@@ -203,17 +202,13 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
      * {@code *-internal.rar}.</li>
      * <li>verbose: {@code true} | {@code false}. Display more information. The set of rules that selected Galleon layers are
      * printed. Default to {@code false}.</li>
-     * <li>version: server version. Default being the latest released version.</li>
      * <li>ignoreDeployment: The deployment will be not analyzed. A server based on the configured add-ons and the default base
      * layer is provisioned. Default to {@code false}.</li>
-     * <li>spaces: List of spaces to enable. A space brings extra galleon feature-packs to the provisioning (eg:
-     * {@code incubating} to
-     * include the feature-packs that are in the incubating state.</li>
      *
      * </ul>
      * </div>
      *
-     * For example, cloud, ha profile with CLI and openapi addOns enabled. mail layer being explicitly included:
+     * For example, cloud, ha profile with CLI and web-console addOns enabled. mail layer being explicitly included:
      *
      * <pre>
      *   &lt;discover-provisioning-info&gt;
@@ -221,7 +216,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
      *     &lt;profile&gt;ha&lt;/profile&gt;
      *     &lt;addOns&gt;
      *       &lt;addOn&gt;wildfly-cli&lt;/addOn&gt;
-     *       &lt;addOn&gt;openapi&lt;/addOn&gt;
+     *       &lt;addOn&gt;web-console&lt;/addOn&gt;
      *     &lt;/addOns&gt;
      *     &lt;layersForJndi&gt;
      *       &lt;layer&gt;mail&lt;/layer&gt;
@@ -296,7 +291,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
                     layers,
                     excludedLayers,
                     featurePacks,
-                    dryRun,
+                    false,
                     getLog(),
                     allDeployments,
                     artifactResolver,
@@ -395,7 +390,6 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
                     }
                 }
             }
-
             GalleonUtils.cleanupServer(jbossHome);
             if (bootableJar) {
                 packageBootableJar(jbossHome, config);

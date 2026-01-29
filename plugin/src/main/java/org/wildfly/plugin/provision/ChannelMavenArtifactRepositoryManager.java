@@ -283,4 +283,8 @@ public class ChannelMavenArtifactRepositoryManager implements MavenRepoManager, 
         return rangeResult;
     }
 
+    public ChannelSession getChannelSession() {
+        return channelSession;
+    }
+
 }

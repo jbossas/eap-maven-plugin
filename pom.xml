@@ -118,8 +118,12 @@
 
         <!-- galleon properties -->
         <version.org.jboss.galleon>7.0.5.Final</version.org.jboss.galleon>
-        <version.org.wildfly.glow>2.0.0.Beta2</version.org.wildfly.glow>
+        <version.org.wildfly.glow>2.0.0.Final-redhat-00005</version.org.wildfly.glow>
         <plugin.fork.embedded>true</plugin.fork.embedded>
+        <!-- EAP specific properties -->
+        <version.org.jboss.eap.glow.metadata>1.0.0.Final-redhat-00001</version.org.jboss.eap.glow.metadata>
+        <!-- used by tests -->
+        <version.org.jboss.logging.slf4j-jboss-logging>1.2.1.Final</version.org.jboss.logging.slf4j-jboss-logging>
 
         <!-- checkstyle configuration -->
         <linkXRef>false</linkXRef>
@@ -375,6 +379,12 @@
                 <groupId>org.wildfly.glow</groupId>
                 <artifactId>wildfly-glow-core</artifactId>
                 <version>${version.org.wildfly.glow}</version>
+            </dependency>
+            <!-- EAP deps -->
+            <dependency>
+              <groupId>org.jboss.eap.glow.metadata</groupId>
+              <artifactId>jboss-eap-glow-metadata-api</artifactId>
+              <version>${version.org.jboss.eap.glow.metadata}</version>
             </dependency>
             <!-- Test dependencies -->
             <dependency>
