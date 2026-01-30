@@ -255,8 +255,9 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
      *
      * @since 5.0
      */
-    @Parameter(alias = "bootable-jar-name", property = PropertyNames.BOOTABLE_JAR_NAME, defaultValue = "${project.artifactId}-bootable.jar")
-    protected String bootableJarName;
+    @Parameter(alias = "bootable-jar-name", property = PropertyNames.BOOTABLE_JAR_NAME, defaultValue = BOOTABLE_JAR_NAME_RADICAL
+            + "-bootable.jar")
+    private String bootableJarName;
 
     /**
      * When {@code bootable-jar} is set to true, the bootable JAR artifact is attached to the project with the classifier
