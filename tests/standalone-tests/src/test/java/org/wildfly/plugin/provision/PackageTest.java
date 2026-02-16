@@ -80,7 +80,6 @@ public class PackageTest extends AbstractProjectMojoTest {
 
     // This test provisions WildFly 32 which does not boot on Java SE 24 without security manager support.
     @Test
-    @Disabled
     @Tag("SecurityManagerRequired")
     @InjectMojo(goal = "package", pom = "package-channel-glow-pom.xml")
     public void testPackageWithChannelGlow(final Mojo packageMojo) throws Exception {
@@ -110,7 +109,6 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
-    @Disabled
     @InjectMojo(goal = "package", pom = "package-glow-pom.xml")
     public void testGlowPackage(final Mojo packageMojo) throws Exception {
         String[] layers = { "ee-core-profile-server", "microprofile-openapi" };
@@ -120,7 +118,6 @@ public class PackageTest extends AbstractProjectMojoTest {
     }
 
     @Test
-    @Disabled
     @InjectMojo(goal = "package", pom = "package-glow-no-deployment-pom.xml")
     public void testGlowNoDeploymentPackage(final Mojo packageMojo) throws Exception {
         String[] layers = { "ee-core-profile-server", "microprofile-openapi" };
