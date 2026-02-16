@@ -91,7 +91,6 @@ public class PackageBootableTest extends AbstractProjectMojoTest {
     }
 
     @Test
-    @Disabled
     @InjectMojo(goal = "package", pom = "package-bootable-glow-pom.xml")
     public void testGlowPackage(final Mojo packageMojo) throws Exception {
         // We need to delete the directory from previous runs without a "clean" executed. This will happen when
@@ -105,7 +104,6 @@ public class PackageBootableTest extends AbstractProjectMojoTest {
     }
 
     @Test
-    @Disabled
     @InjectMojo(goal = "package", pom = "package-bootable-glow-cloud-pom.xml")
     public void testGlowCloudPackage(final Mojo packageMojo) throws Exception {
         // We need to delete the directory from previous runs without a "clean" executed. This will happen when
