@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: ['11']
+        java: ['17']
         wildfly-version: ['26.1.3.Final', '27.0.1.Final']
 
     steps:
