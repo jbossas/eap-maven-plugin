@@ -93,10 +93,8 @@
         <version.jakarta.json-api>2.1.3</version.jakarta.json-api>
         <version.org.eclipse.parsson>1.1.7</version.org.eclipse.parsson>
 
-        <!-- Require at least Java 11 to compile -->
-        <jdk.min.version>11</jdk.min.version>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
+        <!-- Require at least Java 17 to compile -->
+        <maven.compiler.release>17</maven.compiler.release>
 
         <!-- galleon properties -->
         <version.org.jboss.galleon>6.0.4.Final</version.org.jboss.galleon>
