@@ -251,7 +251,7 @@ public class PackageServerMojo extends AbstractProvisionServerMojo {
      * @since 5.0
      */
     @Parameter(alias = "bootable-jar-name", property = PropertyNames.BOOTABLE_JAR_NAME, defaultValue = BOOTABLE_JAR_NAME_RADICAL
-            + "-bootable.jar")
+            + "bootable.jar")
     private String bootableJarName;
 
     /**
