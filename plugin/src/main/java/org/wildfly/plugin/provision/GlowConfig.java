@@ -121,6 +121,8 @@ public class GlowConfig {
                 .setUserEnabledAddOns(addOns).setBinaries(deployments).setSuggest(suggest).setJndiLayers(getLayersForJndi())
                 .setExcludeArchivesFromScan(excludedArchives)
                 .setVerbose(verbose)
+                // In maven the way to configure build time is to set system properties
+                .setPreferSystemProperties(true)
                 .setOutput(OutputFormat.PROVISIONING_XML);
         builder.setProvisoningXML(inProvisioning);
         if (layersConfigurationFileName != null) {
