@@ -80,8 +80,18 @@ public class GlowConfig {
             }
             URL[] urls = new URL[artifacts.size()];
             artifacts.toArray(urls);
+            // lookup for a possible variant
             try (URLClassLoader loader = new URLClassLoader(urls, MetadataProvider.class.getClassLoader())) {
+                String variant = null;
+                List<MetadataProvider> allProviders = new ArrayList<>();
                 for (MetadataProvider provider : ServiceLoader.load(MetadataProvider.class, loader)) {
+                    if (provider.getVariant() != null) {
+                        variant = provider.getVariant();
+                    }
+                    allProviders.add(provider);
+                }
+
+                for (MetadataProvider provider : allProviders) {
                     providers.put(provider.getVersion(), provider);
                     if (version == null) {
                         version = provider.getVersion();
@@ -94,19 +104,20 @@ public class GlowConfig {
                 MetadataProvider provider = providers.get(version);
                 Path provisioningXML = Files.createTempFile("eap-maven-plugin-glow", "-provisioning.xml");
                 provisioningXML.toFile().deleteOnExit();
-                try (InputStream stream = provider.getProvisioningFile(null, context, loader)) {
+                try (InputStream stream = provider.getProvisioningFile(null, context, loader, variant)) {
                     if (stream == null) {
                         throw new MojoExecutionException("Didn't find provisioning discovery metadata in " + artifacts);
                     }
                     Files.write(provisioningXML, stream.readAllBytes());
                 }
                 inProvisioning = provisioningXML;
+                String finalVariant = variant;
                 layerConfigurationProvider = new LayerConfigurationProvider() {
                     @Override
                     public URI getConfigurationURI(String layerName, String version, Set<String> spaces, String context,
                             String variant, URI uri) {
                         for (String space : spaces) {
-                            URI ret = provider.getLayerConfiguration(uri, layerName, space, context, loader);
+                            URI ret = provider.getLayerConfiguration(uri, layerName, space, context, loader, finalVariant);
                             if (ret != null) {
                                 return ret;
                             }

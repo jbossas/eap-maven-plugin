@@ -121,7 +121,7 @@
         <version.org.wildfly.glow>2.2.0.Final-redhat-00001</version.org.wildfly.glow>
         <plugin.fork.embedded>true</plugin.fork.embedded>
         <!-- EAP specific properties -->
-        <version.org.jboss.eap.glow.metadata>1.0.0.Final-redhat-00002</version.org.jboss.eap.glow.metadata>
+        <version.org.jboss.eap.glow.metadata>1.0.0.Final-redhat-00003</version.org.jboss.eap.glow.metadata>
 
         <!-- checkstyle configuration -->
         <linkXRef>false</linkXRef>
