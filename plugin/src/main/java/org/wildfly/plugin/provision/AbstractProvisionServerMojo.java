@@ -139,7 +139,7 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
      * otherwise {@code false}.
      */
     @Parameter(alias = "overwrite-provisioned-server", defaultValue = "false", property = PropertyNames.WILDFLY_PROVISIONING_OVERWRITE_PROVISIONED_SERVER)
-    private boolean overwriteProvisionedServer;
+    protected boolean overwriteProvisionedServer;
 
     /**
      * A list of feature-pack configurations to install, can be combined with layers.
@@ -229,9 +229,7 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
         }
         Path targetPath = Paths.get(project.getBuild().getDirectory());
         wildflyDir = targetPath.resolve(provisioningDir).normalize();
-        if (!overwriteProvisionedServer && Files.exists(wildflyDir)) {
-            getLog().info(String.format("A server already exists in " + wildflyDir + ", skipping " + getGoal() +
-                    " of %s:%s", project.getGroupId(), project.getArtifactId()));
+        if (shouldSkipProvisioning(wildflyDir)) {
             return;
         }
         enrichRepositories();
@@ -281,6 +279,15 @@ abstract class AbstractProvisionServerMojo extends AbstractMojo {
 
     protected void enrichRepositories() throws MojoExecutionException {
         MavenRepositoriesEnricher.enrich(session, project, repositories);
+    }
+
+    protected boolean shouldSkipProvisioning(Path wildflyDir) throws MojoExecutionException {
+        if (!overwriteProvisionedServer && Files.exists(wildflyDir)) {
+            getLog().info(String.format("A server already exists in " + wildflyDir + ", skipping " + getGoal() +
+                    " of %s:%s", project.getGroupId(), project.getArtifactId()));
+            return true;
+        }
+        return false;
     }
 
     protected abstract String getGoal();
